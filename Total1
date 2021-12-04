@@ -87,3 +87,30 @@ FROM book GROUP BY author;
 //20
 SELECT MIN(price) AS Минимальная_цена, MAX(price) AS Максимальная_цена, ROUND(AVG(price), 2) AS Средняя_цена 
 FROM book;
+
+//21
+SELECT ROUND(AVG(price), 2) AS Средняя_цена, SUM(price * amount) AS Стоимость
+FROM book
+WHERE amount BETWEEN 5 AND 14;
+
+//22
+SELECT author, SUM(price * amount) AS Стоимость
+FROM book
+WHERE title NOT IN ("Идиот", "Белая гвардия")
+GROUP BY author
+HAVING SUM(price * amount) > 5000.00
+ORDER BY Стоимость DESC;
+
+//23
+INSERT INTO book (title, author, price, amount)
+VALUES ("Собрание сочинений в 12 томах", "Толстой Л.Н.", 5500.00, 15),
+       ("Война и мир", "Толстой Л.Н.", 1200.00, 18),
+       ("Анна Каренина", "Толстой Л.Н.", 700.00, 5),
+       ("Гиперболоид Инженера Гарина", "Толстой А.Н.", 550.00, 3),
+       ("Аэлита", "Толстой А.Н.", 720.00, 10);
+SELECT author, COUNT(title) AS titles, ROUND(AVG(price), 2) AS average_price, SUM(price * amount) AS total_sum
+FROM book
+WHERE author NOT LIKE "%Есенин%"
+GROUP BY author
+HAVING total_sum >= 5000.00
+ORDER BY total_sum DESC;
