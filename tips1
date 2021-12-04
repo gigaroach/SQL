@@ -1,0 +1,13 @@
+Последовательность выполнения операций на сервере:
+
+MySQL:
+
+    FROM
+    WHERE
+    GROUP BY
+    HAVING
+    SELECT
+    ORDER BY
+
+
+PostgreSQL: FROM => WHERE = GROUP BY = HAVING = SELECT = DISTINCT = ORDER BY = LIMIT.
