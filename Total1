@@ -114,3 +114,11 @@ WHERE author NOT LIKE "%Есенин%"
 GROUP BY author
 HAVING total_sum >= 5000.00
 ORDER BY total_sum DESC;
+
+//24
+SELECT author, title, price
+FROM book
+WHERE price <= (
+    SELECT AVG(price)
+    FROM book)
+ORDER BY price DESC;
