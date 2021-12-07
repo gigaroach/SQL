@@ -122,3 +122,12 @@ WHERE price <= (
     SELECT AVG(price)
     FROM book)
 ORDER BY price DESC;
+
+//25
+SELECT author, title, price
+FROM book
+WHERE (price - (SELECT MIN(price) FROM book)) BETWEEN 0 AND 150
+ORDER BY price ASC;
+
+//26
+
