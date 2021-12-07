@@ -157,3 +157,8 @@ WHERE amount < (SELECT MAX(amount) FROM book);
 SELECT title, author, amount, (SELECT MAX(amount) FROM book) - amount AS Заказ
 FROM book
 HAVING Заказ > 0;
+
+//30
+SELECT title, author, amount, (SELECT CEILING(AVG(amount)) FROM book) - amount AS Заказ
+FROM book
+HAVING Заказ > 0;
