@@ -16,3 +16,20 @@ VALUES  ("Лирика", "Пастернак Б.Л.", 518.99, 2),
 SELECT * FROM supply;
 
 //3
+INSERT INTO book (title, author, price, amount)
+SELECT title, author, price, amount
+FROM supply
+WHERE author NOT LIKE "%Булгаков%" AND author NOT LIKE "%Достоевский%";
+SELECT * FROM book;
+
+//4
+INSERT INTO book (title, author, price, amount)
+SELECT title, author, price, amount
+FROM supply
+WHERE author NOT IN (
+    SELECT author
+    FROM book
+);
+SELECT * FROM book;
+
+//5
