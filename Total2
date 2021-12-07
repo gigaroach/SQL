@@ -38,3 +38,17 @@ WHERE amount BETWEEN 5 AND 10;
 //6
 UPDATE book
 SET price = IF(buy = 0, price * 0.9, price), buy = IF(buy > amount, amount, buy);
+
+//7
+UPDATE book, supply
+SET book.amount = book.amount + supply.amount, book.price = (book.price + supply.price) / 2
+WHERE book.title = supply.title AND book.author = supply.author;
+
+//8
+DELETE FROM supply
+WHERE author IN(
+    SELECT author
+    FROM book
+    GROUP BY author
+    HAVING SUM(amount) > 10
+);
