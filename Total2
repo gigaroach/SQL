@@ -20,7 +20,6 @@ INSERT INTO book (title, author, price, amount)
 SELECT title, author, price, amount
 FROM supply
 WHERE author NOT LIKE "%Булгаков%" AND author NOT LIKE "%Достоевский%";
-SELECT * FROM book;
 
 //4
 INSERT INTO book (title, author, price, amount)
@@ -30,6 +29,12 @@ WHERE author NOT IN (
     SELECT author
     FROM book
 );
-SELECT * FROM book;
 
 //5
+UPDATE book
+SET price = price * 0.9
+WHERE amount BETWEEN 5 AND 10;
+
+//6
+UPDATE book
+SET price = IF(buy = 0, price * 0.9, price), buy = IF(buy > amount, amount, buy);
