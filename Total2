@@ -60,3 +60,7 @@ FROM book
 WHERE amount < (SELECT AVG(amount) FROM book);
 
 //10
+DELETE FROM supply
+WHERE title IN(SELECT title FROM book) AND author IN(SELECT author FROM book);
+
+//11
