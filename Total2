@@ -64,3 +64,9 @@ DELETE FROM supply
 WHERE title IN(SELECT title FROM book) AND author IN(SELECT author FROM book);
 
 //11
+SELECT name, city, per_diem, date_first, date_last
+FROM trip
+WHERE name LIKE "%а %"
+ORDER BY date_last DESC;
+
+//12
