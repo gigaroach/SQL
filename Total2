@@ -70,3 +70,9 @@ WHERE name LIKE "%а %"
 ORDER BY date_last DESC;
 
 //12
+SELECT DISTINCT name
+FROM trip
+WHERE city LIKE "Москва"
+ORDER BY name ASC;
+
+//13
