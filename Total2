@@ -76,3 +76,14 @@ WHERE city LIKE "Москва"
 ORDER BY name ASC;
 
 //13
+SELECT city, COUNT(trip_id) AS Количество
+FROM trip
+GROUP BY city
+ORDER BY city ASC;
+
+//14
+SELECT city, COUNT(trip_id) AS Количество
+FROM trip
+GROUP BY city
+ORDER BY Количество DESC
+LIMIT 2;
