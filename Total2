@@ -102,3 +102,12 @@ WHERE DATEDIFF(date_last, date_first) = (
 );
 
 //17
+SELECT name, city, date_first, date_last
+FROM trip
+WHERE MONTH(date_first) = MONTH(date_last)
+ORDER BY city, name;
+
+//18
+
+
+//https://stepik.org/course/63054/syllabus (1.5 - )
