@@ -162,3 +162,6 @@ HAVING Заказ > 0;
 SELECT title, author, amount, (SELECT CEILING(AVG(amount)) FROM book) - amount AS Заказ
 FROM book
 HAVING Заказ > 0;
+
+
+//https://stepik.org/course/63054/syllabus (1.1 - 1.4)
