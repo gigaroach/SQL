@@ -95,3 +95,10 @@ WHERE city NOT IN ("Москва", "Санкт-Петербург")
 ORDER BY Длительность DESC, city DESC;
 
 //16
+SELECT name, city, date_first, date_last FROM trip
+WHERE DATEDIFF(date_last, date_first) = (
+    SELECT MIN(DATEDIFF(date_last, date_first))
+    FROM trip
+);
+
+//17
