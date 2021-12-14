@@ -158,4 +158,22 @@ GROUP BY name, number_plate, violation
 HAVING COUNT(*) >= 2
 ORDER BY name, number_plate, violation;
 
+//25
+CREATE TABLE query_in(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(30),
+    number_plate VARCHAR(6),
+    violation VARCHAR(50)
+);
+INSERT INTO query_in (name, number_plate, violation)
+VALUES  ("Абрамова К.А.", "О111АВ", "Проезд на запрещающий сигнал"),
+        ("Баранов П.Е.", "Р523ВТ", "Превышение скорости(от 40 до 60)");
+UPDATE fine f, query_in qin
+SET f.sum_fine = 2 * f.sum_fine
+WHERE f.name = qin.name AND f.number_plate = qin.number_plate AND f.date_payment IS NULL;
+SELECT * FROM fine;
+
+//26
+
+
 //https://stepik.org/course/63054/syllabus (1.5 - 1.7)
