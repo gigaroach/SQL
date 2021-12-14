@@ -144,4 +144,11 @@ VALUES    ("Баранов П.Е.", "Р523ВТ", "Превышение скор�
           ("Яковлев Г.Р.", "Т330ТТ", "Проезд на запрещающий сигнал", NULL, "2020-03-03", NULL);
 SELECT * FROM fine;
 
+//23
+UPDATE fine f, traffic_violation tv
+SET f.sum_fine = (
+    SELECT tv.sum_fine FROM traffic_violation tv
+    WHERE f.violation = tv.violation)
+WHERE f.sum_fine IS NULL;
+
 //https://stepik.org/course/63054/syllabus (1.5 - 1.7)
