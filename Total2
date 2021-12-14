@@ -108,6 +108,11 @@ WHERE MONTH(date_first) = MONTH(date_last)
 ORDER BY city, name;
 
 //18
+SELECT MONTHNAME(date_first) AS Месяц, COUNT(MONTHNAME(date_first)) AS Количество
+FROM trip
+GROUP BY MONTHNAME(date_first)
+ORDER BY Количество DESC, Месяц ASC;
 
+//19
 
 //https://stepik.org/course/63054/syllabus (1.5 - )
