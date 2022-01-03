@@ -186,5 +186,10 @@ WHERE date_payment IS NULL;
 SELECT * FROM back_payment;
 
 //28
+DELETE FROM fine
+WHERE date_violation < "2020-02-01";
+SELECT * FROM fine;
+
+//29
 
 //https://stepik.org/course/63054/syllabus (1.5 - 1.7)
