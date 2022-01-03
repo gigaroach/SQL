@@ -180,5 +180,11 @@ WHERE f.number_plate = pm.number_plate AND f.name = pm.name AND f.violation = pm
 SELECT * FROM fine;
 
 //27
+CREATE TABLE back_payment
+SELECT name, number_plate, violation, sum_fine, date_violation FROM fine
+WHERE date_payment IS NULL;
+SELECT * FROM back_payment;
+
+//28
 
 //https://stepik.org/course/63054/syllabus (1.5 - 1.7)
