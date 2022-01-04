@@ -39,4 +39,10 @@ FROM genre INNER JOIN book ON genre.genre_id = book.genre_id
 WHERE amount > 8
 ORDER BY price DESC;
 
+//5
+
+SELECT name_genre
+FROM genre LEFT OUTER JOIN book ON genre.genre_id = book.genre_id
+WHERE title IS NULL;
+
 //https://stepik.org/course/63054/syllabus (2.1 - 2.5)
