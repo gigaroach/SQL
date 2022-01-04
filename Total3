@@ -32,4 +32,11 @@ VALUES ("Стихотворения и поэмы", 3, 2, 650.00, 15),
 ("Лирика", 4, 2, 518.99, 2);
 SELECT * FROM book;
 
+//4
+
+SELECT title, name_genre, price
+FROM genre INNER JOIN book ON genre.genre_id = book.genre_id
+WHERE amount > 8
+ORDER BY price DESC;
+
 //https://stepik.org/course/63054/syllabus (2.1 - 2.5)
