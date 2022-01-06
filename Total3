@@ -51,4 +51,13 @@ SELECT name_city, name_author, DATE_ADD("2020-01-01", INTERVAL (FLOOR(RAND() * 3
 FROM city CROSS JOIN author
 ORDER BY name_city ASC, Дата DESC;
 
+//7
+
+SELECT name_genre, title, name_author
+FROM genre g
+INNER JOIN book b ON g.genre_id = b.genre_id
+INNER JOIN author a ON a.author_id = b.author_id
+WHERE name_genre LIKE "%Роман%"
+ORDER BY title ASC;
+
 //https://stepik.org/course/63054/syllabus (2.1 - 2.5)
