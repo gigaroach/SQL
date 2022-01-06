@@ -45,4 +45,10 @@ SELECT name_genre
 FROM genre LEFT OUTER JOIN book ON genre.genre_id = book.genre_id
 WHERE title IS NULL;
 
+//6
+
+SELECT name_city, name_author, DATE_ADD("2020-01-01", INTERVAL (FLOOR(RAND() * 365)) DAY) AS Дата
+FROM city CROSS JOIN author
+ORDER BY name_city ASC, Дата DESC;
+
 //https://stepik.org/course/63054/syllabus (2.1 - 2.5)
